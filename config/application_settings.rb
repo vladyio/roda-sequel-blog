@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require "dry/configurable"
+require "dotenv"
 require "pathname"
+
+Dotenv.load("#{__dir__}/../.env")
 
 # Allow to use app configuration with methods like this:
 #     ```
@@ -16,5 +19,6 @@ class ApplicationSettings
                  reader: true
 
   setting :env, default: ENV.fetch("RACK_ENV", "development"), reader: true
-  setting :database, default: { url: "sqlite://db/#{env}.sqlite3" }, reader: true
+  setting :database, default: { url: "sqlite://db/#{ENV.fetch('DATABASE_NAME')}.sqlite3" }, reader: true
+  setting :secret_key, default: ENV.fetch("SECRET_KEY"), reader: true
 end
