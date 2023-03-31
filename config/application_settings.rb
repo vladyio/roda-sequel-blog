@@ -16,4 +16,5 @@ class ApplicationSettings
                  reader: true
 
   setting :env, default: ENV.fetch("RACK_ENV", "development"), reader: true
+  setting :database, default: { url: "sqlite://db/#{env}.sqlite3" }, reader: true
 end

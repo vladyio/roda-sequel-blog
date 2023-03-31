@@ -23,6 +23,10 @@ GEM
       ffi (~> 1.0)
     roda (3.66.0)
       rack
+    sequel (5.66.0)
+    sequel_tools (0.1.14)
+      sequel
+    sqlite3 (1.6.2-arm64-darwin)
     tilt (2.1.0)
     zeitwerk (2.6.7)
 
@@ -36,6 +40,9 @@ DEPENDENCIES
   puma (~> 6.2)
   rake (~> 13.0)
   roda (~> 3.66)
+  sequel (~> 5.66)
+  sequel_tools (~> 0.1.14)
+  sqlite3 (~> 1.6)
   tilt (~> 2.1)
 
 BUNDLED WITH
