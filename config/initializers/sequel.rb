@@ -3,3 +3,5 @@
 require "sequel"
 
 DB = Sequel.connect(ApplicationSettings.database[:url])
+
+Sequel::Model.plugin :timestamps
