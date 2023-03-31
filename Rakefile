@@ -22,5 +22,8 @@ task :start do |_t|
 end
 
 namespace :db do
-  SequelTools.inject_rake_tasks(base_config, self)
+  SequelTools.inject_rake_tasks(
+    base_config.merge(log_level: :info, sql_log_level: :info),
+    self
+  )
 end
