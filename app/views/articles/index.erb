@@ -1,1 +1,5 @@
 <%= link_to "New article", new_article_path, class: "btn btn-primary" %>
+
+<% @articles.each do |article| %>
+  <%= partial "articles/article", locals: { article: } %>
+<% end %>
