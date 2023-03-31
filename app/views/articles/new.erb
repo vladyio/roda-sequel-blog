@@ -1,10 +1,1 @@
-<% form(@article, action: articles_path, method: :post, wrapper: :div) do |f| %>
-  <%= f.input :title, labeler: :explicit, label_attr: { class: "form-label" },
-              class: "form-control mb-3" %>
-
-  <%= f.input :body, as: :textarea, labeler: :explicit,
-              label_attr: { class: "form-label" }, class: "form-control mb-3"
-               %>
-
-  <%= f.button value: 'Create', class: "btn btn-success" %>
-<% end %>
+<%= partial "articles/form", locals: { article: @article} %>

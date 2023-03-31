@@ -17,6 +17,7 @@ class Router < Roda
   path :root, "/"
   path :articles, "/articles"
   path :new_article, "/articles/new"
+  path(:edit_article) { |article| "/articles/#{article.id}/edit" }
 
   route do |r|
     # GET /
@@ -47,6 +48,23 @@ class Router < Roda
         flash[:notice] = "Article was successfully created."
 
         r.redirect articles_path
+      end
+
+      r.on Integer do |article_id|
+        @article = Article.with_pk!(article_id)
+
+        # GET /articles/:article_id/edit
+        r.get "edit" do
+          view "articles/edit"
+        end
+
+        # POST /articles/:article_id
+        r.post true do
+          @upd_article = forme_set(@article)
+          @upd_article.save
+
+          r.redirect articles_path
+        end
       end
     end
   end
