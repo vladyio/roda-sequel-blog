@@ -3,8 +3,7 @@
 require "dry/configurable"
 require "pathname"
 
-#
-# Allow to configure the application by methods like this:
+# Allow to use app configuration with methods like this:
 #     ```
 #     ApplicationSettings.root = "#{__dir__}/.."
 #     ApplicationSettings.env = "development"
