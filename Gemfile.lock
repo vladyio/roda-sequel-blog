@@ -8,6 +8,7 @@ GEM
     dry-core (1.0.0)
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
+    erubi (1.12.0)
     ffi (1.15.5)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -22,6 +23,7 @@ GEM
       ffi (~> 1.0)
     roda (3.66.0)
       rack
+    tilt (2.1.0)
     zeitwerk (2.6.7)
 
 PLATFORMS
@@ -29,10 +31,12 @@ PLATFORMS
 
 DEPENDENCIES
   dry-configurable (~> 1.0)
+  erubi (~> 1.12)
   listen (~> 3.8)
   puma (~> 6.2)
   rake (~> 13.0)
   roda (~> 3.66)
+  tilt (~> 2.1)
 
 BUNDLED WITH
    2.4.10
