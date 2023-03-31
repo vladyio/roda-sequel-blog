@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 3.2
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
