@@ -5,6 +5,7 @@ require "listen"
 
 loader = Zeitwerk::Loader.new
 loader.push_dir ApplicationSettings.root.join("app")
+loader.collapse ApplicationSettings.root.join("app/*")
 loader.enable_reloading if ApplicationSettings.env == "development"
 loader.setup
 

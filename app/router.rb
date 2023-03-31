@@ -18,6 +18,8 @@ class Router < Roda
 
     r.on "articles" do
       r.get do
+        @articles = Article.all
+
         view "articles/index"
       end
     end
