@@ -1,6 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    concurrent-ruby (1.2.2)
+    dry-configurable (1.0.1)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
+    dry-core (1.0.0)
+      concurrent-ruby (~> 1.0)
+      zeitwerk (~> 2.6)
     nio4r (2.5.8)
     puma (6.2.1)
       nio4r (~> 2.0)
@@ -8,11 +15,13 @@ GEM
     rake (13.0.6)
     roda (3.66.0)
       rack
+    zeitwerk (2.6.7)
 
 PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  dry-configurable (~> 1.0)
   puma (~> 6.2)
   rake (~> 13.0)
   roda (~> 3.66)
