@@ -21,6 +21,16 @@ task :start do |_t|
   system("bundle exec puma")
 end
 
+task :console do |_t|
+  require_relative "config/boot"
+  require "irb"
+  ARGV.clear
+  IRB.start
+end
+
+# A shortcut for `rake console`
+task c: :console
+
 namespace :db do
   SequelTools.inject_rake_tasks(
     base_config.merge(log_level: :info, sql_log_level: :info),
