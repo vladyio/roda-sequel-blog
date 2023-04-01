@@ -28,7 +28,7 @@ class Router < Roda
     # GET /articles
     r.on "articles" do
       r.get true do
-        @articles = Article.all
+        @articles = Article.reverse_order(:created_at)
 
         view "articles/index"
       end
