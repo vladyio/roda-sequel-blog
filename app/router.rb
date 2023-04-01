@@ -7,6 +7,7 @@ class Router < Roda
   plugin :route_csrf
   plugin :forme_route_csrf
   plugin :forme_set, secret: ApplicationSettings.secret_key
+  plugin :all_verbs
 
   plugin :flash
   plugin :render, views: ApplicationSettings.root.join("app/views")
@@ -16,8 +17,10 @@ class Router < Roda
 
   path :root, "/"
   path :articles, "/articles"
+  path(:article) { |article| "/articles/#{article.id}" }
   path :new_article, "/articles/new"
   path(:edit_article) { |article| "/articles/#{article.id}/edit" }
+  path(:delete_article) { |article| "/articles/#{article.id}/delete" }
 
   route do |r|
     # GET /
@@ -56,6 +59,14 @@ class Router < Roda
         # GET /articles/:article_id/edit
         r.get "edit" do
           view "articles/edit"
+        end
+
+        # DELETE /articles/:article_id
+        r.get "delete" do
+          @article.destroy
+          flash[:notice] = "Article was successfully deleted."
+
+          r.redirect articles_path
         end
 
         # POST /articles/:article_id

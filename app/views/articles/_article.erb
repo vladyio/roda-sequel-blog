@@ -7,5 +7,6 @@
     <%= article.body %>
   </main>
 
-  <%= link_to "Edit ✏️", edit_article_path(article), class: "btn" %>
+  <%= link_to "Edit ✏️", edit_article_path(article), class: "btn btn-primary" %>
+  <%= link_to "Delete", delete_article_path(article), class: "btn btn-danger" %>
 </article>
