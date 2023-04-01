@@ -1,2 +1,4 @@
 <h2>Edit article</h2>
-<%= partial "articles/form", locals: { article: @article } %>
+<%= partial "articles/form", locals: { article: @article,
+                                       action: "/articles/#{@article.id}",
+                                       submit_value: "Save" } %>

@@ -60,8 +60,8 @@ class Router < Roda
 
         # POST /articles/:article_id
         r.post true do
-          @upd_article = forme_set(@article)
-          @upd_article.save
+          @article.update(r.params["article"])
+          flash[:notice] = "Article was successfully updated."
 
           r.redirect articles_path
         end

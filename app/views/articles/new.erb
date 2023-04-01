@@ -1,1 +1,3 @@
-<%= partial "articles/form", locals: { article: @article} %>
+<%= partial "articles/form", locals: { article: @article,
+                                       action: articles_path,
+                                       submit_value: "Create" } %>
