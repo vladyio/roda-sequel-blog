@@ -18,14 +18,26 @@ Self-introduction into Roda, Sequel ecosystem and Zeitwerk autoloading.
 bundle install
 ```
 
-2. Prepare the database (sqlite3):
+2. Configure the `.env` file
+
+```sh
+touch .env
+
+# Generate a secret key:
+ruby -r 'securerandom' -e 'puts "SECRET_KEY=#{SecureRandom.hex(32)}"' > .env
+
+# Add database name:
+cat "DATABASE_NAME=YOUR_DB_NAME" > .env
+```
+
+3. Prepare the database (sqlite3):
 
 ```sh
 bundle exec rake db:create
 bundle exec rake db:migrate
 ```
 
-3. Run Puma application server at `http://localhost:9292` with a Rake default task:
+4. Run Puma application server at `http://localhost:9292` with a Rake default task:
 
 ```sh
 rake
